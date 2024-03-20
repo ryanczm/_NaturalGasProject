@@ -67,13 +67,13 @@ def create_feature_df(storage, prod, demand_actual, demand_normal, actual=True):
     features = balance\
                .join(storage, how='outer') \
                .sort_index(axis=1) \
-               .assign(month = lambda x:x.index.month) \
-               .assign(dow = lambda x:x.index.dayofweek) \
+    #            .assign(month = lambda x:x.index.month) \
+    #            .assign(dow = lambda x:x.index.dayofweek) \
 
-    features['month'] = features['month'].astype('category')
-    features['dow'] = features['dow'].astype('category')
-    features['season'] = features.index.month.map(map_month_to_season)
-    features['season'] = features['season'].astype('category')
+    # features['month'] = features['month'].astype('category')
+    # features['dow'] = features['dow'].astype('category')
+    # features['season'] = features.index.month.map(map_month_to_season)
+    # features['season'] = features['season'].astype('category')
 
     
 
